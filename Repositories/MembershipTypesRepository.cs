@@ -15,5 +15,24 @@ namespace FirstMVCApp.Repositories
 		{
 			return _context.MembershipTypes;
 		}
+
+		public void Add(MembershipTypeModel model)
+		{
+			model.IDMembershipType = Guid.NewGuid();
+			_context.MembershipTypes.Add(model);
+			_context.SaveChanges();
+		}
+
+		public MembershipTypeModel GetMembershipTypeById(Guid id)
+		{
+			MembershipTypeModel membershipType = _context.MembershipTypes.FirstOrDefault(x => x.IDMembershipType == id);
+			return membershipType;
+		}
+
+		public void Update(MembershipTypeModel model)
+		{
+			_context.MembershipTypes.Update(model);
+			_context.SaveChanges();
+		}
 	}
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FirstWebApp
 {
-    public class Program
+    public partial class Program
 	{
 		public static void Main(string[] args)
 		{
@@ -17,6 +17,8 @@ namespace FirstWebApp
 
 			builder.Services.AddTransient<ProgrammingClubDataContext, ProgrammingClubDataContext>();
 			builder.Services.AddTransient<AnnouncementsRepository, AnnouncementsRepository>();
+			builder.Services.AddTransient<MembersRepository, MembersRepository>();
+			builder.Services.AddTransient<MembershipTypesRepository, MembershipTypesRepository>();
 			
 			
 			var app = builder.Build();
