@@ -49,5 +49,13 @@ namespace FirstMVCApp.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+		public IActionResult Delete(Guid id)
+		{
+			AnnouncementModel announcement = _repository.GetAnnouncementById(id);
+			_repository.Delete(announcement);
+
+			return RedirectToAction("Index");
+		}
 	}
 }
