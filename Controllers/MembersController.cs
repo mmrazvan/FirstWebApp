@@ -48,5 +48,17 @@ namespace FirstMVCApp.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+		public IActionResult Delete(Guid id)
+		{
+			MemberModel model = _repository.GetMemberById(id);
+			return View("Delete",model);
+		}
+
+		public IActionResult Delete(Guid id, IFormCollection collection)
+		{
+			_repository.Delete(id);
+			return RedirectToAction("Index");
+		}
 	}
 }

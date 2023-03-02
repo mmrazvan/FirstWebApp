@@ -50,8 +50,14 @@ namespace FirstMVCApp.Controllers
 
 		public IActionResult Delete(Guid id)
 		{
-			_repository.Delete(id);
+			MembershipTypeModel model = _repository.GetMembershipTypeById(id);
+			return View("Delete", model);
+		}
 
+		[HttpPost]
+		public IActionResult Delete(Guid id, IFormCollection collection)
+		{
+			_repository.Delete(id);
 			return RedirectToAction("Index");
 		}
 
