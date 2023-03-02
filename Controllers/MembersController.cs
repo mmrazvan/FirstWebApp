@@ -13,7 +13,7 @@ namespace FirstMVCApp.Controllers
 		{
 			_repository = repository;
 		}	
-
+		// todo dropdown cu viewModel
 		public IActionResult Index()
 		{
 			var members = _repository.GetMembers();

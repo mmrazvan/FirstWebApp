@@ -1,6 +1,8 @@
 ﻿using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
 
+using FirstWebApp.Models;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstMVCApp.Controllers
@@ -48,11 +50,12 @@ namespace FirstMVCApp.Controllers
 
 		public IActionResult Delete(Guid id)
 		{
-			MembershipTypeModel membershipType = _repository.GetMembershipTypeById(id);
-			_repository.Delete(membershipType);
+			_repository.Delete(id);
 
 			return RedirectToAction("Index");
 		}
+
+		
 
 	}
 }

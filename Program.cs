@@ -19,9 +19,9 @@ namespace FirstWebApp
 			builder.Services.AddTransient<AnnouncementsRepository, AnnouncementsRepository>();
 			builder.Services.AddTransient<MembersRepository, MembersRepository>();
 			builder.Services.AddTransient<MembershipTypesRepository, MembershipTypesRepository>();
-			
-			
-			var app = builder.Build();
+            builder.Services.AddTransient<CodeSnippetsRepository, CodeSnippetsRepository>();
+
+            var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())

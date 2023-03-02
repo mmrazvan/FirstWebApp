@@ -52,10 +52,23 @@ namespace FirstMVCApp.Controllers
 
 		public IActionResult Delete(Guid id)
 		{
-			AnnouncementModel announcement = _repository.GetAnnouncementById(id);
-			_repository.Delete(announcement);
-
+			_repository.Delete(id);
 			return RedirectToAction("Index");
 		}
-	}
+		//[HttpPost]
+        //public IActionResult Delete(Guid id, IFormCollection collection)
+        //{
+        //    AnnouncementModel announcement = _repository.GetAnnouncementById(id);
+        //    TryUpdateModelAsync(announcement);
+        //    _repository.Delete(id);
+
+        //    return RedirectToAction("Index");
+        //}
+
+        public IActionResult Details(Guid id)
+        {
+			AnnouncementModel announcement = _repository.GetAnnouncementById(id);
+			return View("Details", announcement);
+        }
+    }
 }
