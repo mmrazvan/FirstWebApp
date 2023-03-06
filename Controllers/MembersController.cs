@@ -1,5 +1,6 @@
 ﻿using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
+using FirstMVCApp.ViewModels;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +14,6 @@ namespace FirstMVCApp.Controllers
 		{
 			_repository = repository;
 		}	
-		// todo dropdown cu viewModel
 		public IActionResult Index()
 		{
 			var members = _repository.GetMembers();
@@ -59,6 +59,12 @@ namespace FirstMVCApp.Controllers
 		{
 			_repository.Delete(id);
 			return RedirectToAction("Index");
+		}
+
+		public ActionResult DetailsWithCodeSnippets(Guid id)
+		{
+			MemberCodeSnippetsViewModel viewModel = _repository.GetMemberCodeSnippet(id);
+			return View("DetailsWithCodeSnippets", viewModel);
 		}
 	}
 }

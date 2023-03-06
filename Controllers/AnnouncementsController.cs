@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FirstMVCApp.Controllers
 {
-	//todo same for members and membershiptypes (add silver gold platinum ca valori, nu altceva)
 	public class AnnouncementsController : Controller
 	{
 		private readonly AnnouncementsRepository _repository;

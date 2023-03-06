@@ -1,18 +1,20 @@
 ﻿using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FirstMVCApp.Controllers
 {
     public class CodeSnippetsController : Controller
     {
         private readonly CodeSnippetsRepository _repository;
+        private readonly MembersRepository _membersRepository;
 
-        public CodeSnippetsController(CodeSnippetsRepository repository)
+        public CodeSnippetsController(CodeSnippetsRepository repository, MembersRepository membersRepository)
         {
             _repository = repository;
+            _membersRepository = membersRepository;
         }
         // GET: CodeSnippetsController
         public ActionResult Index()
@@ -31,6 +33,8 @@ namespace FirstMVCApp.Controllers
         // GET: CodeSnippetsController/Create
         public ActionResult Create()
         {
+            var members = _membersRepository.GetMembers();
+            ViewBag.Data = members;
             return View("Create");
         }
 
@@ -77,8 +81,10 @@ namespace FirstMVCApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Guid id, IFormCollection collection)
         {
-            _repository.Delete(id);
+            _repository.Delete(id);            
             return RedirectToAction("Index");
         }
+
+        
     }
 }
