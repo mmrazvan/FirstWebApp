@@ -1,8 +1,6 @@
 ﻿using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
 
-using FirstWebApp.Models;
-
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstMVCApp.Controllers

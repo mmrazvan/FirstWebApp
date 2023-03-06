@@ -1,12 +1,10 @@
 ﻿using FirstMVCApp.Models;
 
-using FirstWebApp.Models;
-
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstMVCApp.DataContext
 {
-	public class ProgrammingClubDataContext : DbContext
+    public class ProgrammingClubDataContext : DbContext
 	{
 		public ProgrammingClubDataContext(DbContextOptions<ProgrammingClubDataContext> options) : base(options) { }
 

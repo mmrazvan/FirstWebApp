@@ -1,12 +1,11 @@
 ﻿using FirstMVCApp.DataContext;
-
-using FirstWebApp.Models;
+using FirstMVCApp.Models;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstMVCApp.Repositories
 {
-	public class AnnouncementsRepository
+    public class AnnouncementsRepository
 	{
 		// clase repository = clase care implementreaza operatiile CRUD pe Baza de date
 
