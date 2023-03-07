@@ -2,7 +2,6 @@
 using FirstMVCApp.Repositories;
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FirstMVCApp.Controllers
 {

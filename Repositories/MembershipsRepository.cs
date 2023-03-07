@@ -1,10 +1,11 @@
 ﻿using FirstMVCApp.DataContext;
 using FirstMVCApp.Models;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstMVCApp.Repositories
 {
-	public class MembershipsRepository
+    public class MembershipsRepository
 	{
 		private readonly ProgrammingClubDataContext _context;
 		public MembershipsRepository(ProgrammingClubDataContext context)
@@ -16,27 +17,26 @@ namespace FirstMVCApp.Repositories
 			return _context.Memberships;
 		}
 
-		public MembershipModel GetMember(Guid id)
+		public MembershipModel GetMembershipById(Guid id)
 		{
 			MembershipModel model = _context.Memberships.FirstOrDefault(x => x.IDMembership == id);
 			return model;
 		}
 
-		public void AddMember(MembershipModel membershipModel)
+		public void AddMembership(MembershipModel membershipModel)
 		{
 			membershipModel.IDMembership = Guid.NewGuid();
 			_context.Memberships.Add(membershipModel);
 			_context.SaveChanges();
 		}
-		public void Update(MembershipModel membershipModel
-			)
+		public void Update(MembershipModel membershipModel)
 		{
 			_context.Memberships.Update(membershipModel);
 			_context.SaveChanges();
 		}
 		public void Delete(Guid id)
 		{
-			MembershipModel membershipModel = GetMember(id);
+			MembershipModel membershipModel = GetMembershipById(id);
 			_context.Memberships.Remove(membershipModel);
 			_context.SaveChanges();
 		}

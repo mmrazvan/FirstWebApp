@@ -1,5 +1,7 @@
 ﻿using FirstMVCApp.DataContext;
 using FirstMVCApp.Models;
+using FirstMVCApp.ViewModels;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstMVCApp.Repositories
@@ -41,5 +43,22 @@ namespace FirstMVCApp.Repositories
 			_context.MembershipTypes.Remove(membershipType);
 			_context.SaveChanges();
 		}
-	}
+
+        public MembershipTypeViewModel GetMembershipTypeViewModelById(Guid id)
+        {
+            MembershipTypeViewModel model = new MembershipTypeViewModel();
+            MembershipTypeModel membershipTypeModel = _context.MembershipTypes.FirstOrDefault(x => x.IDMembershipType == id);
+            List<Guid> membersGuid = _context.Memberships.Where(x => x.IDMembershipType == membershipTypeModel.IDMembershipType).Select(x => x.IDMember).Distinct().ToList();
+            if (membersGuid != null && membershipTypeModel != null)
+            {
+                model.MembershipType = membershipTypeModel.Name;
+                IQueryable<MemberModel> members = _context.Members.Where(member => membersGuid.Contains(member.IDMember));
+                foreach (var member in members)
+                {
+                    model.Members.Add(member);
+                }
+            }
+            return model;
+        }
+    }
 }

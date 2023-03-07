@@ -1,5 +1,6 @@
 ﻿using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
+using FirstMVCApp.ViewModels;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -59,7 +60,11 @@ namespace FirstMVCApp.Controllers
 			return RedirectToAction("Index");
 		}
 
-		
+        public IActionResult MembershipsWithMembers(Guid id)
+        {
+            MembershipTypeViewModel model = _repository.GetMembershipTypeViewModelById(id);
+            return View("MembershipsWithMembers", model);
+        }
 
-	}
+    }
 }

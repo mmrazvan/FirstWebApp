@@ -46,7 +46,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.IDMembershipType }) |
                     @Html.ActionLink("Details", "Details", new { id = item.IDMembershipType }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IDMembershipType })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IDMembershipType }) |
+                    @Html.ActionLink("MembershipsWithMembers", "MembershipsWithMembers", new {id = item.IDMembershipType})
             </td>
         </tr>
 }

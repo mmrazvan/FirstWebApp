@@ -21,6 +21,7 @@ namespace FirstMVCApp
             builder.Services.AddTransient<MembersRepository, MembersRepository>();
             builder.Services.AddTransient<MembershipTypesRepository, MembershipTypesRepository>();
             builder.Services.AddTransient<CodeSnippetsRepository, CodeSnippetsRepository>();
+            builder.Services.AddTransient<MembershipsRepository, MembershipsRepository>();
 
             var app = builder.Build();
 
