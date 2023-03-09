@@ -2,11 +2,9 @@
 using FirstMVCApp.Repositories;
 using FirstMVCApp.ViewModels;
 
-using Microsoft.AspNetCore.Mvc;
-
 namespace FirstMVCApp.Controllers
 {
-	public class MembershipTypesController : Controller
+    public class MembershipTypesController : Controller
 	{
 		private readonly MembershipTypesRepository _repository;
 		public MembershipTypesController(MembershipTypesRepository repository) => _repository = repository;

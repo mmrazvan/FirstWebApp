@@ -1,7 +1,5 @@
 ﻿using FirstMVCApp.Models;
 
-using Microsoft.AspNetCore.Mvc;
-
 using System.Diagnostics;
 
 namespace FirstMVCApp.Controllers

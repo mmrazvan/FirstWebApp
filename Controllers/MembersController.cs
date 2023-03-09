@@ -2,11 +2,9 @@
 using FirstMVCApp.Repositories;
 using FirstMVCApp.ViewModels;
 
-using Microsoft.AspNetCore.Mvc;
-
 namespace FirstMVCApp.Controllers
 {
-	public class MembersController : Controller
+    public class MembersController : Controller
 	{
 		private readonly MembersRepository _repository;
 

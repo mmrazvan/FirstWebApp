@@ -40,8 +40,11 @@ namespace FirstMVCApp.Repositories
 		public void Delete(Guid id) 
 		{
 			MemberModel model = GetMemberById(id);
-			_context.Members.Remove(model);
-			_context.SaveChanges();
+			if (model != null)
+			{
+                _context.Members.Remove(model);
+                _context.SaveChanges();
+            }
 		}  
 		public MemberCodeSnippetsViewModel GetMemberCodeSnippet(Guid memberID)
 		{

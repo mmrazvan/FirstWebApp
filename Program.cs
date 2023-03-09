@@ -23,8 +23,12 @@ namespace FirstMVCApp
             builder.Services.AddTransient<CodeSnippetsRepository, CodeSnippetsRepository>();
             builder.Services.AddTransient<MembershipsRepository, MembershipsRepository>();
 
+            builder.Services.AddAuth0WebAppAuthentication(options => { options.Domain = builder.Configuration["Auth0:Domain"]; options.ClientId = builder.Configuration["Auth0:ClientId"]; });
+
             var app = builder.Build();
 
+            app.UseAuthentication();
+            
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
